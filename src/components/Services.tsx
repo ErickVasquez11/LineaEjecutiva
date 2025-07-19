@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Car, Users, Shield, Briefcase, Clock, MapPin, X, CheckCircle, Star, Award, Plane } from 'lucide-react';
+import chev from '../img/092861_2019_chevrolet_Trax.jpg'
+
 
 const Services = () => {
   const [selectedService, setSelectedService] = useState<number | null>(null);
@@ -8,80 +10,73 @@ const Services = () => {
     {
       icon: Car,
       title: 'Transporte Ejecutivo',
-      description: 'Servicio de transporte premium con vehículos de lujo y choferes profesionales capacitados.',
-      features: ['Vehículos de lujo', 'Choferes certificados', 'Puntualidad garantizada', 'Servicio 24/7'],
+      description: 'Servicios de transporte de personal con vehículos  particulares y conductores profesionales capacitados.',
+      features: ['Vehículos particulares SUV y Sedán', 'Conductores certificados', 'Puntualidad garantizada', 'Servicio 24/7'],
       image: 'https://i.pinimg.com/736x/46/7c/b8/467cb8311f7042c64c5b8368ab8bf115.jpg',
       detailedInfo: {
-        overview: 'Nuestro servicio de transporte ejecutivo ofrece la máxima comodidad y seguridad para ejecutivos y empresarios que valoran su tiempo y privacidad.',
+        overview: 'Nuestros servicios de transporte de personal particular y ejecutivo ofrece la máxima comodidad y seguridad para usuarios que valoran su tiempo y privacidad.',
         benefits: [
-          'Flota de vehículos Mercedes-Benz, BMW y Audi',
-          'Choferes con más de 10 años de experiencia',
+          'Flota de vehículos de SUV, Sedán y Microbuses',
+          'Conductores con experiencia y documentación vigente',
           'Seguimiento GPS en tiempo real',
-          'Servicio de recogida y entrega puerta a puerta',
-          'Vehículos equipados con WiFi y cargadores',
-          'Mantenimiento preventivo garantizado'
+          'Servicio de recogida y entrega ',
+          'Unidades con Mantenimiento preventivo garantizado'
         ],
-        pricing: 'Desde $45/hora - Tarifas corporativas disponibles',
-        availability: 'Disponible 24/7 con reserva previa de 2 horas'
+        pricing: 'Cotización personalizada según requerimientos',
+        availability: 'Disponible 24/7'
       }
     },
     {
       icon: Users,
-      title: 'Servicios Corporativos',
-      description: 'Soluciones integrales para empresas y eventos corporativos de alto nivel.',
-      features: ['Eventos corporativos', 'Traslados grupales', 'Protocolo empresarial', 'Gestión logística'],
-      image: 'https://i.pinimg.com/1200x/a0/85/c9/a085c9728f27e6e6656411c9ff2b805b.jpg',
+      title: 'Servicios Grupales',
+      description: 'Soluciones integrales para empresas y eventos.',
+      features: ['Traslados grupales', 'Protocolo empresarial', 'Gestión logística', 'Tours y eventos'],
+      image: 'https://i.pinimg.com/736x/51/6e/ec/516eec68a348df9270fd85ac5083e2ca.jpg',
       detailedInfo: {
-        overview: 'Servicios especializados para empresas que requieren soluciones logísticas y de protocolo para sus eventos y operaciones corporativas.',
+        overview: 'Servicios especializados para eventos sociales, tours y empresas que requieren soluciones de transporte.',
         benefits: [
-          'Organización completa de eventos corporativos',
-          'Traslados grupales para hasta 50 personas',
-          'Coordinación de protocolo empresarial',
-          'Gestión de invitados VIP',
-          'Servicios de catering ejecutivo',
-          'Documentación y reportes post-evento'
+          'Organización de traslados grupales',
+          'Traslados seguros y cómodos'
         ],
         pricing: 'Cotización personalizada según requerimientos',
-        availability: 'Planificación con 1 semana de anticipación'
+        availability: 'Inmediata y planificación con anticipación'
       }
     },
     {
       icon: Plane,
-      title: 'Traslados Aeropuerto',
+      title: 'Traslados al Aeropuerto',
       description: 'Servicio confortable y sobre todo seguro para nuestros pasajeros y su equipaje',
-      features: ['Escoltas certificados', 'Evaluación de riesgos', 'Protección discreta', 'Coordinación total'],
-      image: 'https://i.pinimg.com/736x/50/fe/7f/50fe7fc373df75aeb4b06db1372eb981.jpg',
+      features: ['Vehículos particulares SUV y Sedán', 'Conductores certificados', 'Puntualidad garantizada', 'Servicio 24/7'],
+      image: 'https://i.pinimg.com/736x/77/e6/8b/77e68b240deab55b32293604c7cf3745.jpg',
       detailedInfo: {
-        overview: 'Servicios de seguridad personal con personal altamente entrenado y certificado para la protección de ejecutivos y personalidades.',
+        overview: 'Servicios de transporte personal con conductores calificacos para el traslado seguro de ejecutivos y personalidades.',
         benefits: [
           'Vehiculo con capacidad segun sus requerimientos',
           'Espacio para equipaje y pertenencias',
           'Conductor altamente capacitado',
           'Combustible para todo el recorrido',
-          'Comunicación encriptada 24/7'
+          'Unidades con asistencia satelital'
         ],
-        pricing: 'Desde $80/día - Paquetes mensuales disponibles',
-        availability: 'Activación inmediata para emergencias'
+        pricing: 'Cotización personalizada según requerimientos',
+        availability: 'Disponible 24/7 y planificación con anticipación'
       }
     },
     {
       icon: Briefcase,
-      title: 'Asistencia Ejecutiva',
-      description: 'Servicios de apoyo administrativo y logístico para ejecutivos ocupados.',
+      title: 'Asistencia Personalizada',
+      description: 'Servicios de apoyo administrativo y logístico',
       features: ['Gestión de agenda', 'Coordinación de viajes', 'Servicios de mensajería', 'Apoyo administrativo'],
-      image: 'https://i.pinimg.com/1200x/c3/9e/15/c39e15835949fe70244fc31e0220e1fa.jpg',
+      image: chev,
       detailedInfo: {
         overview: 'Servicios de asistencia ejecutiva que permiten a los líderes empresariales enfocarse en decisiones estratégicas mientras nosotros manejamos los detalles.',
         benefits: [
-          'Gestión completa de agenda y citas',
+          'Gestión completa de reservaciones',
           'Coordinación de viajes nacionales e internacionales',
-          'Servicios de mensajería express',
-          'Apoyo en presentaciones y documentos',
-          'Gestión de reservas y eventos',
-          'Seguimiento de compromisos importantes'
+          'Servicios de ecomiendas',
+          'Gestión de reservas y eventos'
         ],
-        pricing: 'Desde $25/hora - Paquetes mensuales desde $800',
-        availability: 'Lunes a viernes 7:00 AM - 7:00 PM'
+        pricing: 'Cotización personalizada según requerimientos',
+        availability: 'Disponible 24/7'
       }
     },
     {
@@ -106,22 +101,20 @@ const Services = () => {
     },
     {
       icon: MapPin,
-      title: 'Cobertura Nacional',
+      title: 'Cobertura Nacional e Internacional',
       description: 'Servicios disponibles en todo el territorio nacional con la misma calidad.',
       features: ['Todo El Salvador', 'Red de aliados', 'Estándares únicos', 'Coordinación central'],
       image: 'https://i.pinimg.com/1200x/92/ce/52/92ce52f71a12e8f7e163aa20ec843550.jpg',
       detailedInfo: {
-        overview: 'Red de servicios que cubre todo El Salvador, garantizando los mismos estándares de calidad en cualquier ubicación del país.',
+        overview: 'Red de servicios que cubre todo el territorio nacional e internacional, garantizando un traslado seguro y eficiente.',
         benefits: [
-          'Cobertura en los 14 departamentos',
-          'Red de aliados estratégicos certificados',
+          'Cobertura internacional',
           'Estándares de calidad unificados',
-          'Coordinación desde oficina central',
-          'Tiempos de respuesta optimizados',
-          'Conocimiento local especializado'
+          'Coordinación digital con tiempo real',
+          'Tiempos de respuesta optimizados'
         ],
-        pricing: 'Sin costo adicional por ubicación',
-        availability: 'Cobertura completa en territorio nacional'
+        pricing: 'Cotización personalizada según requerimientos',
+        availability: 'Inmediata y planificación con anticipación'
       }
     }
   ];
@@ -145,7 +138,7 @@ const Services = () => {
             Nuestros Servicios
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto px-4 sm:px-0">
-            Ofrecemos una gama completa de servicios ejecutivos diseñados para satisfacer 
+            Ofrecemos una gama completa de servicios de transporte diseñados para satisfacer 
             las necesidades más exigentes de nuestros clientes.
           </p>
         </div>
@@ -165,7 +158,7 @@ const Services = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>
               
-              <div className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-gray-800 to-gray-800 rounded-2xl mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
                 <service.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </div>
               
@@ -261,7 +254,7 @@ const Services = () => {
                   </div>
 
                   <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl p-4 sm:p-6 text-white">
-                    <h4 className="text-base sm:text-lg font-bold mb-2 sm:mb-3">¿Interesado en este servicio?</h4>
+                    <h4 className="text-base sm:text-lg font-bold mb-2 sm:mb-3">¿Conoce nuestros servicios ?</h4>
                     <p className="mb-3 sm:mb-4 text-blue-100 text-sm sm:text-base">Contáctanos para una cotización personalizada</p>
                     <a 
                       href="#contacto" 

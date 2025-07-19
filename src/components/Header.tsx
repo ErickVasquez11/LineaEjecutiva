@@ -14,8 +14,9 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { name: 'Inicio', href: '#inicio' },
+    
     { name: 'Servicios', href: '#servicios' },
+    { name: 'Renta de Vehículos', href: '#renta-vehiculos' },
     { name: 'Nosotros', href: '#nosotros' },
     { name: 'Contacto', href: '#contacto' },
   ];
@@ -27,12 +28,12 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 lg:h-20">
           <div className="flex items-center space-x-4">
-            <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">LE</span>
+            <div className="w-10 h-10 bg-gradient-to-r from-gray-900 to-gray-900 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-lg">UT</span>
             </div>
             <div className="hidden sm:block">
-              <h1 className={`text-xl font-bold ${isScrolled ? 'text-gray-800' : 'text-white'}`}>
-                Línea Ejecutiva
+              <h1 className={`text-xl font-bold ${isScrolled ? 'text-gray-900' : 'text-white'}`}>
+                Urbania Transporte
               </h1>
             </div>
           </div>
@@ -52,19 +53,19 @@ const Header = () => {
           </nav>
 
           <div className="hidden xl:flex items-center space-x-2 lg:space-x-4">
-            <a href="tel:+50322222222" className={`hidden lg:flex items-center space-x-2 hover:scale-105 transition-transform ${
+            <a href="tel:+50370993538" className={`hidden lg:flex items-center space-x-2 hover:scale-105 transition-transform ${
               isScrolled ? 'text-gray-600' : 'text-white/90'
             }`}>
               <Phone className="w-4 h-4" />
-              <span className="text-xs lg:text-sm">+503 2222-2222</span>
+              <span className="text-xs lg:text-sm">+503 7099-3538</span>
             </a>
             <a href="mailto:info@lineaejecutiva.com" className={`hidden xl:flex items-center space-x-2 hover:scale-105 transition-transform ${
               isScrolled ? 'text-gray-600' : 'text-white/90'
             }`}>
               <Mail className="w-4 h-4" />
-              <span className="text-xs lg:text-sm">info@lineaejecutiva.com</span>
+              <span className="text-xs lg:text-sm">urbaniatransportes@gmail.com</span>
             </a>
-            <a href="#contacto" className="bg-blue-600 text-white px-3 lg:px-4 py-2 rounded-lg text-xs lg:text-sm font-semibold hover:bg-blue-700 transition-colors ml-2 lg:ml-4">
+            <a href="#contacto" className="bg-gray-900 text-white px-3 lg:px-4 py-2 rounded-lg text-xs lg:text-sm font-semibold hover:bg-gray-900 transition-colors ml-2 lg:ml-4">
               Cotizar
             </a>
           </div>
@@ -92,9 +93,9 @@ const Header = () => {
                 </a>
               ))}
               <div className="pt-4 mt-4 border-t border-gray-200 space-y-3">
-                <a href="tel:+50322222222" className="flex items-center space-x-3 text-gray-600 hover:text-blue-600">
+                <a href="tel:+50370993538" className="flex items-center space-x-3 text-gray-600 hover:text-blue-600">
                   <Phone className="w-5 h-5" />
-                  <span>+503 2222-2222</span>
+                  <span>+503 7099-3538</span>
                 </a>
                 <a href="#contacto" onClick={() => setIsMenuOpen(false)} className="block bg-blue-600 text-white text-center py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
                   Solicitar Cotización

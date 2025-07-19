@@ -25,30 +25,39 @@ const Contact = () => {
     });
   };
 
+  
   const contactInfo = [
     {
       icon: Phone,
       title: 'Teléfono',
-      info: '+503 2222-2222',
-      subInfo: 'Línea directa 24/7'
+      info: (
+        <a
+          href="https://wa.me/50370993538"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 hover:underline"
+        >
+          +503 7099-3538
+        </a>
+      ),
+      extraInfo: 'Línea directa 24/7'
     },
     {
       icon: Mail,
       title: 'Email',
-      info: 'info@lineaejecutiva.com',
-      subInfo: 'Respuesta en 2 horas'
+      info: 'urbaniatransportes@gmail.com',
+      subInfo: 'Respuesta en 15 Minutos'
     },
     {
       icon: MapPin,
       title: 'Dirección',
-      info: 'Col. Escalón, San Salvador',
+      info: '55 Av.Sur, Local #6, Av. Olímpica, San Salvador',
       subInfo: 'El Salvador, C.A.'
     },
     {
       icon: Clock,
       title: 'Horarios',
-      info: '24/7 Disponible',
-      subInfo: 'Servicios de emergencia'
+      info: '24/7 Disponible'
     }
   ];
 
@@ -78,6 +87,9 @@ const Contact = () => {
                     <h4 className="text-sm sm:text-base font-semibold text-gray-800">{item.title}</h4>
                     <p className="text-sm sm:text-base text-gray-600">{item.info}</p>
                     <p className="text-xs sm:text-sm text-gray-500">{item.subInfo}</p>
+                    {item.extraInfo && (
+                      <p className="text-xs sm:text-sm text-gray-500">{item.extraInfo}</p>
+                    )}
                   </div>
                 </div>
               ))}
@@ -89,7 +101,7 @@ const Contact = () => {
                 Llámanos directamente y te proporcionaremos una cotización inmediata 
                 para tu requerimiento específico.
               </p>
-              <a href="tel:+50322222222" className="inline-block bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm sm:text-base font-semibold hover:bg-blue-700 transition-colors">
+              <a href="tel:+50370993538" className="inline-block bg-gray-900 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm sm:text-base font-semibold hover:bg-blue-700 transition-colors">
                 Llamar Ahora
               </a>
             </div>
@@ -152,12 +164,10 @@ const Contact = () => {
                     className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
                     required
                   >
-                    <option value="">Seleccionar servicio</option>
-                    <option value="transporte">Transporte Ejecutivo</option>
+                    <option value="transporte">Transporte Personal</option>
                     <option value="corporativo">Servicios Corporativos</option>
-                    <option value="seguridad">Seguridad Personal</option>
-                    <option value="asistencia">Asistencia Ejecutiva</option>
-                    <option value="otros">Otros</option>
+                    <option value="traslados">Traslados al Aeropuerto</option>
+                    <option value="asistencia">Asistencia Personal</option>
                   </select>
                 </div>
               </div>
@@ -179,15 +189,23 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 sm:py-4 rounded-lg text-sm sm:text-base font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transform hover:scale-105"
+                className="w-full bg-gradient-to-r from-gray-800 to-gray-900 text-white py-3 sm:py-4 rounded-lg text-sm sm:text-base font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transform hover:scale-105"
               >
                 <Send className="w-5 h-5" />
-                <span>Enviar Mensaje</span>
+                <span>Enviar Mensaje</span> 
               </button>
 
-              <p className="text-center text-xs sm:text-sm text-gray-500 mt-3 sm:mt-4">
-                📞 <strong>¿Necesitas atención inmediata?</strong> Llámanos al +503 2222-2222
-              </p>
+                <p className="text-center text-xs sm:text-sm text-gray-500 mt-3 sm:mt-4">
+                📞 <strong>¿Necesitas atención inmediata?</strong>{' '}
+                <a
+                  href="https://wa.me/50370993538"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  Llámanos al +503 7099-3538
+                </a>
+                </p>
             </form>
           </div>
         </div>

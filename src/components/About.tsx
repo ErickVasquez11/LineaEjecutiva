@@ -41,8 +41,8 @@ const About = () => {
   const features = [
     {
       icon: Award,
-      title: 'Experiencia Comprobada',
-      description: 'Más de 15 años brindando servicios ejecutivos de excelencia en El Salvador.'
+      title: 'Experiencia y Calidad Certificada',
+      description: ''
     },
     {
       icon: Users,
@@ -53,11 +53,6 @@ const About = () => {
       icon: Clock,
       title: 'Puntualidad Garantizada',
       description: 'Comprometidos con la puntualidad y el cumplimiento de todos nuestros servicios.'
-    },
-    {
-      icon: CheckCircle,
-      title: 'Calidad Certificada',
-      description: 'Procesos certificados bajo los más altos estándares internacionales de calidad.'
     }
   ];
 
@@ -97,28 +92,6 @@ const About = () => {
           </div>
 
           <div className="space-y-6 sm:space-y-8 mt-8 lg:mt-0">
-            <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl p-6 sm:p-8 text-white">
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Nuestros Números</h3>
-              <div className="grid grid-cols-2 gap-4 sm:gap-6">
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2">{stats.years}+</div>
-                  <div className="text-blue-100 text-xs sm:text-sm">Años de Experiencia</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2">{stats.clients}+</div>
-                  <div className="text-blue-100 text-xs sm:text-sm">Clientes Satisfechos</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2">{stats.services.toLocaleString()}+</div>
-                  <div className="text-blue-100 text-xs sm:text-sm">Servicios Realizados</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold mb-1 sm:mb-2">{stats.satisfaction}%</div>
-                  <div className="text-blue-100 text-xs sm:text-sm">Satisfacción</div>
-                </div>
-              </div>
-            </div>
-
             <div className="bg-gray-50 rounded-2xl p-6 sm:p-8">
               <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">Nuestra Misión</h3>
               <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
@@ -131,7 +104,7 @@ const About = () => {
                 <span className="text-sm sm:text-base text-gray-700 font-medium">Certificación ISO 9001:2015</span>
               </div>
               <div className="mt-4">
-                <a href="#contacto" className="inline-block bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm sm:text-base font-semibold hover:bg-blue-700 transition-colors">
+                <a href="#contacto" className="inline-block bg-gray-900 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg text-sm sm:text-base font-semibold hover:bg-blue-700 transition-colors">
                   Conocer Más Sobre Nosotros
                 </a>
               </div>
