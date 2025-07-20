@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Car, Users, Shield, Briefcase, Clock, MapPin, X, CheckCircle, Star, Award, Plane } from 'lucide-react';
 import chev from '../img/092861_2019_chevrolet_Trax.jpg'
+import asistente from '../img/d156b0d46f883ea68a37eda2936ac54f.png'
 
 
 const Services = () => {
@@ -28,9 +29,9 @@ const Services = () => {
     },
     {
       icon: Users,
-      title: 'Servicios Grupales',
-      description: 'Soluciones integrales para empresas y eventos.',
-      features: ['Traslados grupales', 'Protocolo empresarial', 'Gestión logística', 'Tours y eventos'],
+      title: 'Traslados de Grupos',
+      description: 'Soluciones de transporte para empresas y eventos.',
+      features: ['Traslados grupales', 'Gestión logística', 'Tours y eventos', 'Conductores certificados'],
       image: 'https://i.pinimg.com/736x/51/6e/ec/516eec68a348df9270fd85ac5083e2ca.jpg',
       detailedInfo: {
         overview: 'Servicios especializados para eventos sociales, tours y empresas que requieren soluciones de transporte.',
@@ -45,8 +46,8 @@ const Services = () => {
     {
       icon: Plane,
       title: 'Traslados al Aeropuerto',
-      description: 'Servicio confortable y sobre todo seguro para nuestros pasajeros y su equipaje',
-      features: ['Vehículos particulares SUV y Sedán', 'Conductores certificados', 'Puntualidad garantizada', 'Servicio 24/7'],
+      description: 'Servicio confortable y sobre todo seguro para nuestros pasajeros y su equipaje.',
+      features: ['Vehículos particulares SUV,Sedán y Microbuses', 'Conductores certificados', 'Puntualidad garantizada', 'Servicio 24/7'],
       image: 'https://i.pinimg.com/736x/77/e6/8b/77e68b240deab55b32293604c7cf3745.jpg',
       detailedInfo: {
         overview: 'Servicios de transporte personal con conductores calificacos para el traslado seguro de ejecutivos y personalidades.',
@@ -66,55 +67,22 @@ const Services = () => {
       title: 'Asistencia Personalizada',
       description: 'Servicios de apoyo administrativo y logístico',
       features: ['Gestión de agenda', 'Coordinación de viajes', 'Servicios de mensajería', 'Apoyo administrativo'],
-      image: chev,
+      image: 'https://i.pinimg.com/736x/7a/eb/90/7aeb903ea041e92350445703e03b19e6.jpg',
       detailedInfo: {
-        overview: 'Servicios de asistencia ejecutiva que permiten a los líderes empresariales enfocarse en decisiones estratégicas mientras nosotros manejamos los detalles.',
+        overview: 'Servicios de asistencia personal que permiten seguir con sus compromisos mientras nosotros manejamos los detalles. Ofrecemos una red de servicios de transporte que cubre todo el territorio nacional e internacional, garantizando un traslado seguro y eficiente.',
         benefits: [
           'Gestión completa de reservaciones',
           'Coordinación de viajes nacionales e internacionales',
           'Servicios de ecomiendas',
-          'Gestión de reservas y eventos'
-        ],
-        pricing: 'Cotización personalizada según requerimientos',
-        availability: 'Disponible 24/7'
-      }
-    },
-    {
-      icon: Clock,
-      title: 'Disponibilidad 24/7',
-      description: 'Atención y servicios disponibles las 24 horas del día, los 365 días del año.',
-      features: ['Línea directa', 'Respuesta inmediata', 'Soporte continuo', 'Emergencias cubiertas'],
-      image: 'https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg?auto=compress&cs=tinysrgb&w=600',
-      detailedInfo: {
-        overview: 'Centro de operaciones que funciona las 24 horas para garantizar que nuestros clientes siempre tengan acceso a nuestros servicios.',
-        benefits: [
-          'Centro de llamadas 24/7/365',
+          'Gestión de reservas y eventos',
+          'Centro de llamadas 24/7',
           'Tiempo de respuesta menor a 15 minutos',
           'Coordinación de servicios de emergencia',
-          'Soporte técnico continuo',
-          'Monitoreo de servicios activos',
-          'Reportes en tiempo real'
-        ],
-        pricing: 'Incluido en todos nuestros servicios',
-        availability: 'Siempre disponible - Sin excepciones'
-      }
-    },
-    {
-      icon: MapPin,
-      title: 'Cobertura Nacional e Internacional',
-      description: 'Servicios disponibles en todo el territorio nacional con la misma calidad.',
-      features: ['Todo El Salvador', 'Red de aliados', 'Estándares únicos', 'Coordinación central'],
-      image: 'https://i.pinimg.com/1200x/92/ce/52/92ce52f71a12e8f7e163aa20ec843550.jpg',
-      detailedInfo: {
-        overview: 'Red de servicios que cubre todo el territorio nacional e internacional, garantizando un traslado seguro y eficiente.',
-        benefits: [
-          'Cobertura internacional',
-          'Estándares de calidad unificados',
-          'Coordinación digital con tiempo real',
-          'Tiempos de respuesta optimizados'
+          'Monitoreo de servicios en tiempo real',
+
         ],
         pricing: 'Cotización personalizada según requerimientos',
-        availability: 'Inmediata y planificación con anticipación'
+        availability: 'Disponible 24/7',
       }
     }
   ];

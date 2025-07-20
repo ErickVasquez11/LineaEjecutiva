@@ -14,50 +14,50 @@ const MinimalCarousel = () => {
   const slides = [
     {
       image: heroImg,
-      title: "Servicios Ejecutivos de Excelencia",
+      title: "Servicios de Transporte",
       subtitle: "Transporte Premium en El Salvador",
       description:
-        "Más de 15 años de experiencia brindando servicios de transporte ejecutivo con el más alto nivel de profesionalismo y seguridad.",
+        "Experiencia garantizada brindando servicios de transporte de personal, ejecutivos y corporativos con el más alto nivel de profesionalismo y seguridad.",
       isMainPage: true,
     },
      {
       image: contryImg,
-      title: "Servicios Ejecutivos de Excelencia",
+        title: "Servicios de Transporte",
       subtitle: "Transporte Premium en El Salvador",
       description:
-        "Más de 15 años de experiencia brindando servicios de transporte ejecutivo con el más alto nivel de profesionalismo y seguridad.",
+        "Experiencia garantizada brindando servicios de transporte de personal, ejecutivos y corporativos con el más alto nivel de profesionalismo y seguridad.",
       isMainPage: true,
     },
     {
       image: "https://www.lukesheppardkia.com/wp-content/uploads/2024/03/kia-sorento-hero.webp",
-      title: "Servicios Ejecutivos de Excelencia",
+      title: "Servicios de Transporte",
       subtitle: "Transporte Premium en El Salvador",
       description:
-        "Más de 15 años de experiencia brindando servicios de transporte ejecutivo con el más alto nivel de profesionalismo y seguridad.",
+        "Experiencia garantizada brindando servicios de transporte de personal, ejecutivos y corporativos con el más alto nivel de profesionalismo y seguridad.",
       isMainPage: true,
     },
     {
       image: "https://isuzuworld.my/images/6272024121339PMx-terrain_heroNew.png",
-      title: "Servicios Ejecutivos de Excelencia",
+      title: "Servicios de Transporte",
       subtitle: "Transporte Premium en El Salvador",
       description:
-        "Más de 15 años de experiencia brindando servicios de transporte ejecutivo con el más alto nivel de profesionalismo y seguridad.",
+        "Experiencia garantizada brindando servicios de transporte de personal, ejecutivos y corporativos con el más alto nivel de profesionalismo y seguridad.",
       isMainPage: true,
     },
     {
       image: "https://wallpapercave.com/wp/wp7542934.jpg",
-      title: "Servicios Ejecutivos de Excelencia",
+      title: "Servicios de Transporte",
       subtitle: "Transporte Premium en El Salvador",
       description:
-        "Más de 15 años de experiencia brindando servicios de transporte ejecutivo con el más alto nivel de profesionalismo y seguridad.",
+         "Experiencia garantizada brindando servicios de transporte de personal, ejecutivos y corporativos con el más alto nivel de profesionalismo y seguridad.",
       isMainPage: true,
     },
     {
       image: trax,
-      title: "Servicios Ejecutivos de Excelencia",
+      title: "Servicios de Transporte",
       subtitle: "Transporte Premium en El Salvador",
       description:
-        "Más de 15 años de experiencia brindando servicios de transporte ejecutivo con el más alto nivel de profesionalismo y seguridad.",
+        "Experiencia garantizada brindando servicios de transporte de personal, ejecutivos y corporativos con el más alto nivel de profesionalismo y seguridad.",
       isMainPage: true,
     }
   ]

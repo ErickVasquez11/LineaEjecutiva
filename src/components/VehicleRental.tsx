@@ -219,7 +219,7 @@ const VehicleRental = () => {
                     </button>
                     <button 
                       onClick={() => openReservation(vehicle.id)}
-                      className="flex-1 bg-gray-800 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors"
+                      className="flex-1 bg-gray-800 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700npm transition-colors"
                     >
                       Reservar
                     </button>
