@@ -69,7 +69,7 @@ const Services = () => {
       features: ['Gestión de agenda', 'Coordinación de viajes', 'Servicios de mensajería', 'Apoyo administrativo'],
       image: 'https://i.pinimg.com/736x/7a/eb/90/7aeb903ea041e92350445703e03b19e6.jpg',
       detailedInfo: {
-        overview: 'Servicios de asistencia personal que permiten seguir con sus compromisos mientras nosotros manejamos los detalles. Ofrecemos una red de servicios de transporte que cubre todo el territorio nacional e internacional, garantizando un traslado seguro y eficiente.',
+        overview: 'Servicios de asistencia personal que permiten seguir con sus compromisos mientras nosotros manejamos los detalles. Ofrecemos una red de servicios de transporte personal, empresarial y grupal que cubre todo el territorio nacional e internacional, garantizando un traslado seguro y eficiente.',
         benefits: [
           'Gestión completa de reservaciones',
           'Coordinación de viajes nacionales e internacionales',
