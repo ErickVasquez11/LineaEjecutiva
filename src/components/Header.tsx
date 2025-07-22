@@ -101,7 +101,7 @@ const Header = () => {
                   <Phone className="w-5 h-5" />
                   <span>+503 7099-3538</span>
                 </a>
-                <a href="#contacto" onClick={() => setIsMenuOpen(false)} className="block bg-blue-600 text-white text-center py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                <a href="#contacto" onClick={() => setIsMenuOpen(false)} className="block bg-blue-700 text-white text-center py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
                   Solicitar Cotización
                 </a>
               </div>
