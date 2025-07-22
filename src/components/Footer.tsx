@@ -1,5 +1,6 @@
 import React from 'react';
 import { Facebook, Twitter, Instagram, Linkedin, Phone, Mail, MapPin } from 'lucide-react';
+import logo from '../img/LOGO-ORIGINAL.png';
 
 const Footer = () => {
  
@@ -27,16 +28,21 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-black text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Company Info */}
           <div className="space-y-4 sm:col-span-2 lg:col-span-1">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">UT</span>
-              </div>
-              <h3 className="text-lg sm:text-xl font-bold">Urbania Transportes</h3>
+              <div className="w-10 h-10 bg-gradient-to-r  rounded-lg flex items-center justify-center">
+                <img src={logo} alt="Urbania Logo" className="w-8 h-8" />
+            </div>
+              <h3
+                  className={`text-xl font-bold tracking-wide }`}
+                  style={{ fontFamily: '"BankGothic Lt BT", Arial, sans-serif' }}
+                >
+                  Urbania Transportes
+                </h3>
             </div>
             <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
               Servicios ejecutivos de excelencia con más de 15 años de experiencia 

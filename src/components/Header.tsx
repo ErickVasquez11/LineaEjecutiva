@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Phone, Mail } from 'lucide-react';
+import logo from '../img/LOGO-ORIGINAL.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,12 +30,15 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           <div className="flex items-center space-x-4">
             <div className="w-10 h-10 bg-gradient-to-r from-gray-900 to-gray-900 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">UT</span>
+                <img src={logo} alt="Urbania Logo" className="w-8 h-8" />
             </div>
             <div className="hidden sm:block">
-              <h1 className={`text-xl font-bold ${isScrolled ? 'text-gray-900' : 'text-white'}`}>
-                Urbania Transporte
-              </h1>
+                <h1
+                  className={`text-xl font-bold tracking-wide ${isScrolled ? 'text-gray-900' : 'text-white'}`}
+                  style={{ fontFamily: '"BankGothic Lt BT", Arial, sans-serif' }}
+                >
+                  Urbania Transportes
+                </h1>
             </div>
           </div>
 

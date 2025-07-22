@@ -99,13 +99,13 @@ const Services = () => {
 
   return (
     <>
-      <section id="servicios" className="py-12 sm:py-16 lg:py-20 bg-gray-50">
+      <section id="servicios" className="py-12 sm:py-16 lg:py-20 bg-black">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
             Nuestros Servicios
           </h2>
-          <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto px-4 sm:px-0">
+          <p className="text-base sm:text-lg lg:text-xl text-white max-w-2xl mx-auto px-4 sm:px-0">
             Ofrecemos una gama completa de servicios de transporte diseñados para satisfacer 
             las necesidades más exigentes de nuestros clientes.
           </p>
@@ -115,7 +115,7 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+              className="group bg-gray-500 rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-500"
             >
               <div className="relative mb-6 rounded-xl overflow-hidden">
                 <img 
@@ -126,29 +126,29 @@ const Services = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>
               
-              <div className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-gray-800 to-gray-800 rounded-2xl mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-black to-black rounded-2xl mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
                 <service.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </div>
               
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-3 sm:mb-4 group-hover:text-blue-600 transition-colors">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4 group-hover:text-gray-200 transition-colors">
                 {service.title}
               </h3>
               
-              <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 leading-relaxed">
+              <p className="text-sm sm:text-base text-white mb-4 sm:mb-6 leading-relaxed">
                 {service.description}
               </p>
 
               <ul className="space-y-2 sm:space-y-3">
                 {service.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-center space-x-3">
-                    <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full"></div>
-                    <span className="text-sm sm:text-base text-gray-700">{feature}</span>
+                    <div className="w-2 h-2 bg-gradient-to-r from-white to-white rounded-full"></div>
+                    <span className="text-sm sm:text-base text-white">{feature}</span>
                   </li>
                 ))}
               </ul>
 
               <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-gray-100">
-                <button onClick={() => openModal(index)} className="text-sm sm:text-base text-blue-600 font-semibold hover:text-blue-700 transition-colors group-hover:underline">
+                <button onClick={() => openModal(index)} className="text-sm sm:text-base text-white font-semibold hover:text-blue-400 transition-colors group-hover:underline">
                   Más información →
                 </button>
               </div>
@@ -161,7 +161,7 @@ const Services = () => {
       {/* Modal */}
       {selectedService !== null && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 sm:p-6">
-          <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto mx-4 sm:mx-0">
+          <div className="bg-gray-600/90 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto mx-4 sm:mx-0">
             <div className="relative">
               <img 
                 src={services[selectedService].image} 
@@ -171,7 +171,7 @@ const Services = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-t-2xl"></div>
               <button
                 onClick={closeModal}
-                className="absolute top-2 right-2 sm:top-4 sm:right-4 w-8 h-8 sm:w-10 sm:h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors"
+                className="absolute top-2 right-2 sm:top-4 sm:right-4 w-8 h-8 sm:w-10 sm:h-10 bg-gray-600 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-gray-500/90 transition-colors"
               >
                 <X className="w-4 h-4 sm:w-6 sm:h-6" />
               </button>
@@ -188,15 +188,15 @@ const Services = () => {
             <div className="p-4 sm:p-6 lg:p-8">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
                 <div>
-                  <h4 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4 flex items-center">
+                  <h4 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4 flex items-center">
                     <Award className="w-5 h-5 text-blue-600 mr-2" />
                     Descripción del Servicio
                   </h4>
-                  <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 leading-relaxed">
+                  <p className="text-sm sm:text-base text-white/100 mb-4 sm:mb-6 leading-relaxed">
                     {services[selectedService].detailedInfo.overview}
                   </p>
 
-                  <h4 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4 flex items-center">
+                  <h4 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4 flex items-center">
                     <Star className="w-5 h-5 text-yellow-500 mr-2" />
                     Beneficios Incluidos
                   </h4>
@@ -204,26 +204,26 @@ const Services = () => {
                     {services[selectedService].detailedInfo.benefits.map((benefit, index) => (
                       <li key={index} className="flex items-start space-x-3">
                         <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm sm:text-base text-gray-700">{benefit}</span>
+                        <span className="text-sm sm:text-base text-white/100">{benefit}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 <div className="space-y-4 sm:space-y-6">
-                  <div className="bg-blue-50 rounded-xl p-4 sm:p-6">
-                    <h4 className="text-base sm:text-lg font-bold text-gray-800 mb-2 sm:mb-3">💰 Precios</h4>
+                  <div className="bg-blue-100 rounded-xl p-4 sm:p-6">
+                    <h4 className="text-base sm:text-lg font-bold text-black mb-2 sm:mb-3">💰 Precios</h4>
                     <p className="text-sm sm:text-base text-gray-700">{services[selectedService].detailedInfo.pricing}</p>
                   </div>
 
-                  <div className="bg-green-50 rounded-xl p-4 sm:p-6">
+                  <div className="bg-green-100 rounded-xl p-4 sm:p-6">
                     <h4 className="text-base sm:text-lg font-bold text-gray-800 mb-2 sm:mb-3">⏰ Disponibilidad</h4>
                     <p className="text-sm sm:text-base text-gray-700">{services[selectedService].detailedInfo.availability}</p>
                   </div>
 
-                  <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl p-4 sm:p-6 text-white">
+                  <div className="bg-gradient-to-r from-blue-400 to-blue-400 rounded-xl p-4 sm:p-6 text-white">
                     <h4 className="text-base sm:text-lg font-bold mb-2 sm:mb-3">¿Conoce nuestros servicios ?</h4>
-                    <p className="mb-3 sm:mb-4 text-blue-100 text-sm sm:text-base">Contáctanos para una cotización personalizada</p>
+                    <p className="mb-3 sm:mb-4 text-black/90 text-sm sm:text-base">Contáctanos para una cotización personalizada</p>
                     <a 
                       href="#contacto" 
                       onClick={closeModal}

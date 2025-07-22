@@ -15,7 +15,7 @@ const MinimalCarousel = () => {
     {
       image: heroImg,
       title: "Servicios de Transporte",
-      subtitle: "Transporte Premium en El Salvador",
+      subtitle: "",
       description:
         "Experiencia garantizada brindando servicios de transporte de personal, ejecutivos y corporativos con el más alto nivel de profesionalismo y seguridad.",
       isMainPage: true,
@@ -23,7 +23,7 @@ const MinimalCarousel = () => {
      {
       image: contryImg,
         title: "Servicios de Transporte",
-      subtitle: "Transporte Premium en El Salvador",
+      subtitle: "",
       description:
         "Experiencia garantizada brindando servicios de transporte de personal, ejecutivos y corporativos con el más alto nivel de profesionalismo y seguridad.",
       isMainPage: true,
@@ -31,7 +31,7 @@ const MinimalCarousel = () => {
     {
       image: "https://www.lukesheppardkia.com/wp-content/uploads/2024/03/kia-sorento-hero.webp",
       title: "Servicios de Transporte",
-      subtitle: "Transporte Premium en El Salvador",
+      subtitle: "",
       description:
         "Experiencia garantizada brindando servicios de transporte de personal, ejecutivos y corporativos con el más alto nivel de profesionalismo y seguridad.",
       isMainPage: true,
@@ -39,7 +39,7 @@ const MinimalCarousel = () => {
     {
       image: "https://isuzuworld.my/images/6272024121339PMx-terrain_heroNew.png",
       title: "Servicios de Transporte",
-      subtitle: "Transporte Premium en El Salvador",
+      subtitle: "",
       description:
         "Experiencia garantizada brindando servicios de transporte de personal, ejecutivos y corporativos con el más alto nivel de profesionalismo y seguridad.",
       isMainPage: true,
@@ -47,7 +47,7 @@ const MinimalCarousel = () => {
     {
       image: "https://wallpapercave.com/wp/wp7542934.jpg",
       title: "Servicios de Transporte",
-      subtitle: "Transporte Premium en El Salvador",
+      subtitle: "",
       description:
          "Experiencia garantizada brindando servicios de transporte de personal, ejecutivos y corporativos con el más alto nivel de profesionalismo y seguridad.",
       isMainPage: true,
@@ -55,7 +55,7 @@ const MinimalCarousel = () => {
     {
       image: trax,
       title: "Servicios de Transporte",
-      subtitle: "Transporte Premium en El Salvador",
+      subtitle: "",
       description:
         "Experiencia garantizada brindando servicios de transporte de personal, ejecutivos y corporativos con el más alto nivel de profesionalismo y seguridad.",
       isMainPage: true,
@@ -89,7 +89,7 @@ const MinimalCarousel = () => {
   }
 
   return (
-    <section className="relative h-screen bg-white overflow-hidden">
+    <section className="relative h-screen bg-slate-950 overflow-hidden">
       {/* Image Container - Responsive */}
       <div className="absolute inset-0 w-full h-full">
         {slides.map((slide, index) => (
@@ -119,10 +119,10 @@ const MinimalCarousel = () => {
 
       {/* Content Container - Responsive */}
       <div className="relative z-10 h-full flex items-center">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="max-w-2xl">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-12">
+          <div className="max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl">
             {/* Content */}
-            <div className="bg-gray-600 backdrop-blur-sm p-4 sm:p-6 md:p-8 lg:p-12 rounded-lg shadow-lg">
+            <div className="bg-gray-600/90 backdrop-blur-sm p-3 sm:p-4 md:p-6 lg:p-8 xl:p-12 rounded-lg shadow-lg">
               <p className="text-xs sm:text-sm font-medium text-gray-600 mb-2 tracking-wide uppercase">
                 {slides[currentSlide].subtitle}
               </p>
@@ -137,17 +137,13 @@ const MinimalCarousel = () => {
 
               {/* Información adicional solo en la primera slide - Responsive */}
               {slides[currentSlide].isMainPage && (
-                <div className="mb-6 sm:mb-8 space-y-4 ">
-                  <div className="grid grid-cols-3 gap-2 sm:gap-4 text-center">
-                    <div className="p-2 sm:p-4 bg-gray-50 rounded-lg align-middle">
-                      <div className="text-lg sm:text-2xl font-light text-gray-900 mb-1">100%</div>
-                      <div className="text-xs sm:text-sm text-gray-600">Seguro</div>
-                    </div>
-                    <div className="p-2 sm:p-4 bg-gray-50 rounded-lg align-middle ">
+                <div className="mb-6 sm:mb-8 space-y-4  ">
+                    <div className="gap-2 sm:gap-4 justify-center items-center">
+                    <div className="p-2 sm:p-4 bg-gray-50 rounded-lg flex flex-col items-center justify-center text-center mx-auto">
                       <div className="text-lg sm:text-2xl font-light text-gray-900 mb-1">24/7</div>
                       <div className="text-xs sm:text-sm text-gray-600">Disponible</div>
                     </div>
-                  </div>
+                    </div>
 
                   <div className="pt-3 sm:pt-4 border-t border-gray-200 space-y-1 sm:space-y-2 text-xs sm:text-sm text-white">
                     <div className="flex items-center space-x-2">

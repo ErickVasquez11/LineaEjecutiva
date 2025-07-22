@@ -29,6 +29,7 @@ const VehicleRental = () => {
     vehicleId: null as number | null,
     name: "",
     email: "",
+    countryCode: "+503",
     phone: "",
     license: "",
     pickupDate: "",
@@ -46,7 +47,7 @@ const VehicleRental = () => {
       name: "Sedán",
       category: "Particular",
       image: "https://i.pinimg.com/1200x/1b/da/61/1bda619835574c64ad87fc02595e0226.jpg",
-      price: 35,
+      price: 40,
       passengers: 4,
       transmission: "Automática",
       fuel: "Premium",
@@ -59,26 +60,26 @@ const VehicleRental = () => {
         "Camara de reversa",
       ],
       description:
-        "Ideal para ejecutivos y viajes urbanos. Este sedán combina elegancia, eficiencia y confort, brindando una experiencia de conducción premium con excelente rendimiento de combustible.",
+        "Ideal para viajes urbanos. EL vehículo sedán combina elegancia, eficiencia y confort, brindando una experiencia de conducción premium con excelente rendimiento de combustible.",
     },
     {
       id: 2,
       name: "SUV",
       category: "SUV",
       image: "https://i.pinimg.com/736x/a8/4e/8c/a84e8cd2713edd4548156b9e0ecda40d.jpg",
-      price: 50,
+      price: 60,
       passengers: 7,
       transmission: "Automática",
       fuel: "Premium",
       features: [
         "Tracción AWD",
         "Asientos de tela",
-        "7 pasajeros",
+        "4 a 7 pasajeros",
         "Sistema de entretenimiento Apple CarPlay, Android Auto",
         "Climatizador automático dual",
       ],
       description:
-        "Versátil y espaciosa, perfecta para familias o grupos. Su diseño robusto y sus características de seguridad la hacen ideal para viajes largos con total comodidad.",
+        "SUV Versátiles y espaciosas , perfectas para familias o grupos pequeños. El diseño robusto y sus características de seguridad las hacen ideal para viajes largos con total comodidad.",
     },
     {
       id: 3,
@@ -87,7 +88,7 @@ const VehicleRental = () => {
       image: "https://i.pinimg.com/1200x/dd/39/72/dd39725af9fccaa10ab2acb0548ec620.jpg",
       price: 75,
       passengers: 4,
-      transmission: "Automática",
+      transmission: "Automática / Manual",
       fuel: "Diesel",
       features: [
         "Tracción 4x4",
@@ -97,7 +98,7 @@ const VehicleRental = () => {
         "Sistema de navegación GPS",
       ],
       description:
-        "Potente pickup para trabajo o aventura. Con motor diésel y diseño resistente, es ideal para terrenos exigentes sin sacrificar confort y tecnología.",
+        "Pickups para uso personal o aventura. Con motor diésel y gasolina con diseño resistente, es ideal para terrenos exigentes sin sacrificar el confort.",
     },
   ]
 
@@ -115,6 +116,7 @@ const VehicleRental = () => {
     "Hotel Intercontinental",
     "Zona Rosa, San Salvador",
     "Colonia Escalón, San Salvador",
+    "Seleccionar Ubicación",
   ]
 
   const openVehicleModal = (index: number) => {
@@ -167,11 +169,13 @@ const VehicleRental = () => {
         minute: "2-digit",
       })
 
+      // Parámetros actualizados para coincidir exactamente con la plantilla
       const templateParams = {
         nombre_completo: reservationData.name,
+        fecha_envio: fechaEnvio,
         email: reservationData.email,
+        codigo_pais: reservationData.countryCode,
         telefono: reservationData.phone,
-        licencia: reservationData.license,
         vehiculo: selectedVehicleInfo?.name || "No especificado",
         conductor_certificado: conductorCertificado,
         fecha_entrega: reservationData.pickupDate,
@@ -179,7 +183,6 @@ const VehicleRental = () => {
         fecha_devolucion: reservationData.returnDate,
         hora_devolucion: reservationData.returnTime,
         lugar_entrega: reservationData.pickupLocation,
-        fecha_envio: fechaEnvio,
       }
 
       const result = await emailjs.send("service_jtty8p4", "template_j7xzwyk", templateParams, "_WJqcpBtNh2uCLEZi")
@@ -220,6 +223,7 @@ const VehicleRental = () => {
       vehicleId: null,
       name: "",
       email: "",
+      countryCode: "+503",
       phone: "",
       license: "",
       pickupDate: "",
@@ -274,11 +278,11 @@ const VehicleRental = () => {
 
   return (
     <>
-      <section id="renta-vehiculos" className="py-12 sm:py-16 lg:py-20 bg-white">
+      <section id="renta-vehiculos" className="py-12 sm:py-16 lg:py-20 bg-black">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">Renta de Vehículos</h2>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4 sm:px-0">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">Renta de Vehículos</h2>
+            <p className="text-base sm:text-lg lg:text-xl text-white max-w-3xl mx-auto px-4 sm:px-0">
               Flota de vehículos para uso personal, eventos y ocasiones especiales. Todos nuestros vehículos incluyen
               seguro completo y mantenimiento garantizado.
             </p>
@@ -288,7 +292,7 @@ const VehicleRental = () => {
             {vehicles.map((vehicle, index) => (
               <div
                 key={vehicle.id}
-                className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 overflow-hidden"
+                className="group bg-gray-600/90 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-600 overflow-hidden"
               >
                 <div className="relative">
                   <img
@@ -296,46 +300,46 @@ const VehicleRental = () => {
                     alt={vehicle.name}
                     className="w-full h-48 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute top-4 left-4 bg-gray-900 text-white px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">
+                  <div className="absolute top-4 left-4 bg-black text-white px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">
                     {vehicle.category}
                   </div>
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm text-gray-800 px-3 py-1 rounded-full text-sm font-bold">
+                  <div className="absolute top-4 right-4 bg-black/90 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-bold">
                     ${vehicle.price}/día
                   </div>
                 </div>
 
                 <div className="p-6">
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 group-hover:text-gray-300 transition-colors">
                     {vehicle.name}
                   </h3>
 
-                  <p className="text-sm sm:text-base text-gray-600 mb-4 leading-relaxed">{vehicle.description}</p>
+                  <p className="text-sm sm:text-base text-white mb-4 leading-relaxed">{vehicle.description}</p>
 
                   <div className="grid grid-cols-3 gap-4 mb-4 text-center">
                     <div className="flex flex-col items-center">
-                      <Users className="w-5 h-5 text-blue-600 mb-1" />
-                      <span className="text-xs text-gray-600">{vehicle.passengers} personas</span>
+                      <Users className="w-5 h-5 text-white mb-1" />
+                      <span className="text-xs text-white">{vehicle.passengers} personas</span>
                     </div>
                     <div className="flex flex-col items-center">
-                      <Settings className="w-5 h-5 text-blue-600 mb-1" />
-                      <span className="text-xs text-gray-600">{vehicle.transmission}</span>
+                      <Settings className="w-5 h-5 text-white mb-1" />
+                      <span className="text-xs text-white">{vehicle.transmission}</span>
                     </div>
                     <div className="flex flex-col items-center">
-                      <Fuel className="w-5 h-5 text-blue-600 mb-1" />
-                      <span className="text-xs text-gray-600">{vehicle.fuel}</span>
+                      <Fuel className="w-5 h-5 text-white mb-1" />
+                      <span className="text-xs text-white">{vehicle.fuel}</span>
                     </div>
                   </div>
 
                   <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
                     <button
                       onClick={() => openVehicleModal(index)}
-                      className="flex-1 border border-gray-200 text-black px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors"
+                      className="flex-1  bg-gray-800 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors"
                     >
                       Ver Detalles
                     </button>
                     <button
                       onClick={() => openReservation(vehicle.id)}
-                      className="flex-1 bg-gray-800 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors"
+                      className="flex-1 bg-gray-800 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-red-700 transition-colors"
                     >
                       Reservar
                     </button>
@@ -348,7 +352,7 @@ const VehicleRental = () => {
           <div className="text-center mt-12">
             <button
               onClick={() => setShowTerms(true)}
-              className="text-blue-600 hover:text-blue-700 font-semibold underline"
+              className="text-white hover:text-blue-700 font-semibold underline"
             >
               Ver Términos y Condiciones de Renta
             </button>
@@ -359,67 +363,67 @@ const VehicleRental = () => {
       {/* Modal de Confirmación de Reserva */}
       {showConfirmation && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="bg-gray-600/90 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6 sm:p-8">
               {/* Header con ícono de éxito */}
               <div className="text-center mb-8">
-                <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-20 h-20 bg-gray-600/90 rounded-full flex items-center justify-center mx-auto mb-4">
                   <CheckCircle className="w-12 h-12 text-green-600" />
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">¡Reserva Confirmada!</h3>
-                <p className="text-gray-600">Tu solicitud de reserva ha sido enviada exitosamente</p>
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">¡Reserva Confirmada!</h3>
+                <p className="text-gray-100">Tu solicitud de reserva ha sido enviada exitosamente</p>
               </div>
 
               {/* Información de la reserva */}
-              <div className="bg-gray-50 rounded-xl p-6 mb-6">
+              <div className="bg-gray-200/90 rounded-xl p-6 mb-6">
                 <h4 className="text-lg font-bold text-gray-800 mb-4 flex items-center">
-                  <Car className="w-5 h-5 text-blue-600 mr-2" />
+                  <Car className="w-5 h-5 text-red-600 mr-2" />
                   Detalles de tu Reserva
                 </h4>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                   <div className="space-y-3">
                     <div className="flex items-center space-x-2">
-                      <User className="w-4 h-4 text-gray-500" />
-                      <span className="text-gray-600">Cliente:</span>
+                      <User className="w-4 h-4 text-gray-800" />
+                      <span className="text-gray-800">Cliente:</span>
                       <span className="font-medium">{reservationData.name}</span>
                     </div>
 
                     <div className="flex items-center space-x-2">
-                      <Car className="w-4 h-4 text-gray-500" />
-                      <span className="text-gray-600">Vehículo:</span>
+                      <Car className="w-4 h-4 text-gray-800" />
+                      <span className="text-gray-800">Vehículo:</span>
                       <span className="font-medium">{getSelectedVehicle()?.name}</span>
                     </div>
 
                     <div className="flex items-center space-x-2">
-                      <Calendar className="w-4 h-4 text-gray-500" />
-                      <span className="text-gray-600">Duración:</span>
+                      <Calendar className="w-4 h-4 text-gray-800" />
+                      <span className="text-gray-800">Duración:</span>
                       <span className="font-medium">{calculateDays()} días</span>
                     </div>
 
                     <div className="flex items-center space-x-2">
-                      <MapPin className="w-4 h-4 text-gray-500" />
-                      <span className="text-gray-600">Entrega:</span>
+                      <MapPin className="w-4 h-4 text-gray-800" />
+                      <span className="text-gray-800">Entrega:</span>
                       <span className="font-medium text-xs">{reservationData.pickupLocation}</span>
                     </div>
                   </div>
 
                   <div className="space-y-3">
                     <div className="flex items-center space-x-2">
-                      <Mail className="w-4 h-4 text-gray-500" />
-                      <span className="text-gray-600">Email:</span>
+                      <Mail className="w-4 h-4 text-gray-800" />
+                      <span className="text-gray-800">Email:</span>
                       <span className="font-medium text-xs">{reservationData.email}</span>
                     </div>
 
                     <div className="flex items-center space-x-2">
-                      <Phone className="w-4 h-4 text-gray-500" />
-                      <span className="text-gray-600">Teléfono:</span>
-                      <span className="font-medium">{reservationData.phone}</span>
+                      <Phone className="w-4 h-4 text-gray-800" />
+                      <span className="text-gray-800">Teléfono:</span>
+                      <span className="font-medium">{reservationData.countryCode} {reservationData.phone}</span>
                     </div>
 
                     <div className="flex items-center space-x-2">
-                      <Clock className="w-4 h-4 text-gray-500" />
-                      <span className="text-gray-600">Fechas:</span>
+                      <Clock className="w-4 h-4 text-gray-800" />
+                      <span className="text-gray-800">Fechas:</span>
                       <div className="text-xs">
                         <div>{formatDate(reservationData.pickupDate)}</div>
                         <div>hasta {formatDate(reservationData.returnDate)}</div>
@@ -427,13 +431,26 @@ const VehicleRental = () => {
                     </div>
 
                     <div className="flex items-center space-x-2">
-                      <span className="text-gray-600">Total:</span>
+                      <span className="text-gray-800">Total:</span>
                       <span className="font-bold text-lg text-green-600">${calculateTotal()}</span>
                     </div>
                   </div>
                 </div>
               </div>
-
+              {/* Advertencia */}
+              <div className="bg-red-50 rounded-xl p-6 mb-6">
+                <h4 className="text-lg font-bold text-gray-800 mb-3 flex items-center">
+                  <Clock className="w-5 h-5 text-red-600 mr-2" />
+                  Advertencia
+                </h4>
+                <ul className="space-y-2 text-sm text-gray-700">
+                  <li className="flex items-start space-x-2">
+                    <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" />
+                    <span>En caso de no tener disponible el carro a la hora de la reservación, se entregará un carro de la misma categoria disponible.</span>
+                  </li>
+                </ul>
+              </div>
+              
               {/* Próximos pasos */}
               <div className="bg-blue-50 rounded-xl p-6 mb-6">
                 <h4 className="text-lg font-bold text-gray-800 mb-3 flex items-center">
@@ -504,6 +521,7 @@ const VehicleRental = () => {
                       vehicleId: null,
                       name: "",
                       email: "",
+                      countryCode: "+503",
                       phone: "",
                       license: "",
                       pickupDate: "",
@@ -515,7 +533,7 @@ const VehicleRental = () => {
                       termsAccepted: false,
                     })
                   }}
-                  className="flex-1 border border-gray-300 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+                  className="flex-1 border border-gray-900 text-gray-900 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
                 >
                   Nueva Reserva
                 </button>
@@ -528,7 +546,7 @@ const VehicleRental = () => {
       {/* Modal de Detalles del Vehículo */}
       {selectedVehicle !== null && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="bg-gray-600/90 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div className="relative">
               <img
                 src={vehicles[selectedVehicle].image || "/placeholder.svg"}
@@ -537,14 +555,16 @@ const VehicleRental = () => {
               />
               <button
                 onClick={closeModal}
-                className="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors"
+                className="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-black hover:bg-white/30 transition-colors"
               >
                 <X className="w-6 h-6" />
               </button>
               <div className="absolute bottom-4 left-4">
-                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">{vehicles[selectedVehicle].name}</h3>
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 bg-black/90 rounded-lg px-4 py-2 inline-block">
+                  {vehicles[selectedVehicle].name}
+                </h3>
                 <div className="flex items-center space-x-4">
-                  <span className="bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm">
+                  <span className="bg-black backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm">
                     {vehicles[selectedVehicle].category}
                   </span>
                   <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-bold">
@@ -555,40 +575,40 @@ const VehicleRental = () => {
             </div>
 
             <div className="p-6 sm:p-8">
-              <div className="bg-green-50 rounded-xl p-6 align-middle">
-                <h4 className="text-lg font-bold text-gray-800 mb-3">💰 Precio por Día</h4>
-                <div className="text-3xl font-bold text-green-600 mb-2">${vehicles[selectedVehicle].price}</div>
-                <p className="text-sm text-gray-600 mb-4">Descuentos disponibles para rentas de 5+ días</p>
-                <button
-                  onClick={() => openReservation(vehicles[selectedVehicle].id)}
-                  className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-                >
-                  Reservar Ahora
-                </button>
-              </div>
+                <div className="bg-green-100 rounded-lg p-6 align-middle w-full mb-8">
+                  <h4 className="text-lg font-bold text-gray-800 mb-2">💰 Precio por Día</h4>
+                  <div className="text-2xl font-bold text-green-600 mb-1">${vehicles[selectedVehicle].price}</div>
+                  <p className="text-sm text-gray-700 mb-4">Descuentos disponibles para rentas de 5+ días</p>
+                  <button
+                    onClick={() => openReservation(vehicles[selectedVehicle].id)}
+                    className="w-full bg-blue-600/90 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-base"
+                  >
+                    Reservar Ahora
+                  </button>
+                </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div>
-                  <h4 className="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                  <h4 className="text-xl font-bold text-white mb-4 flex items-center">
                     <Car className="w-5 h-5 text-blue-600 mr-2" />
                     Especificaciones
                   </h4>
                   <div className="grid grid-cols-2 gap-4 mb-6">
-                    <div className="text-center p-4 bg-gray-50 rounded-lg">
-                      <Users className="w-8 h-8 text-blue-600 mx-auto mb-2" />
+                    <div className="text-center p-4 bg-gray-600/90 rounded-lg">
+                      <Users className="w-8 h-8 text-white mx-auto mb-2" />
                       <div className="font-semibold">{vehicles[selectedVehicle].passengers}</div>
-                      <div className="text-sm text-gray-600">Pasajeros</div>
+                      <div className="text-sm text-white">Pasajeros</div>
                     </div>
-                    <div className="text-center p-4 bg-gray-50 rounded-lg">
-                      <Settings className="w-8 h-8 text-blue-600 mx-auto mb-2" />
+                    <div className="text-center p-4 bg-gray-600/90 rounded-lg">
+                      <Settings className="w-8 h-8 text-white mx-auto mb-2" />
                       <div className="font-semibold">{vehicles[selectedVehicle].transmission}</div>
-                      <div className="text-sm text-gray-600">Transmisión</div>
+                      <div className="text-sm text-white">Transmisión</div>
                     </div>
                   </div>
                 </div>
 
                 <div className="space-y-6">
-                  <div className="bg-blue-50 rounded-xl p-6">
+                  <div className="bg-blue-100 rounded-xl p-6">
                     <h4 className="text-lg font-bold text-gray-800 mb-3 flex items-center">
                       <Shield className="w-5 h-5 text-blue-600 mr-2" />
                       Incluido en la Renta
@@ -596,7 +616,7 @@ const VehicleRental = () => {
                     <ul className="space-y-2 text-sm">
                       <li className="flex items-center space-x-2">
                         <CheckCircle className="w-4 h-4 text-green-500" />
-                        <span>Seguro completo contra todo riesgo</span>
+                        <span>Seguro básico </span>
                       </li>
                       <li className="flex items-center space-x-2">
                         <CheckCircle className="w-4 h-4 text-green-500" />
@@ -638,7 +658,7 @@ const VehicleRental = () => {
                   </h4>
                   <ul className="space-y-2 ml-4">
                     <li>• Edad mínima: 20 años</li>
-                    <li>• Licencia de conducir vigente (mínimo 3 años de experiencia)</li>
+                    <li>• Licencia de conducir vigente (mínimo 1 año de experiencia)</li>
                     <li>• Tarjeta de crédito a nombre del conductor principal</li>
                     <li>• Identificación oficial vigente (DUI o Pasaporte)</li>
                   </ul>
@@ -669,7 +689,7 @@ const VehicleRental = () => {
                     </li>
                     <li>
                       • La devolución del auto deberá ser realizado a las misma horas que fue entregada; este proceso
-                      contara con hasta 2 hora de tolerancia que generarán un costo de $20 USD mas IVA por hora y
+                      contara con hasta 2 horas de tolerancia que generarán un costo de $20 USD mas IVA por hora y
                       después de las dos horas se aplicara un día mas de alquiler.
                     </li>
                     <li>• Tolerancia de entrega: 30 minutos (después se cobra hora completa)</li>
@@ -722,10 +742,10 @@ const VehicleRental = () => {
       {/* Modal de Reserva */}
       {showReservation && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="bg-gray-600/100  rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6 sm:p-8">
               <div className="flex justify-between items-center mb-6">
-                <h3 className="text-2xl sm:text-3xl font-bold text-gray-800">Realizar Reserva</h3>
+                <h3 className="text-2xl sm:text-3xl font-bold text-white">Realizar Reserva</h3>
                 <button
                   onClick={closeModal}
                   className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-200 transition-colors"
@@ -737,13 +757,14 @@ const VehicleRental = () => {
               <form onSubmit={handleReservationSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                   <div className="space-y-6">
-                    <h4 className="text-lg font-bold text-gray-800">Información Personal</h4>
+                    <h4 className="text-lg font-bold text-white">Información Personal</h4>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Nombre Completo</label>
+                      <label className="block text-sm font-medium text-gray-100  mb-2">Nombre Completo</label>
                       <input
                         type="text"
                         name="name"
+                        placeholder="Tu nombre completo"
                         value={reservationData.name}
                         onChange={handleReservationChange}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -751,12 +772,13 @@ const VehicleRental = () => {
                       />
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                        <label className="block text-sm font-medium text-gray-100 mb-2">Email</label>
                         <input
                           type="email"
                           name="email"
+                           placeholder="tu@gmail.com"
                           value={reservationData.email}
                           onChange={handleReservationChange}
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -764,35 +786,41 @@ const VehicleRental = () => {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Teléfono</label>
-                        <input
-                          type="tel"
-                          name="phone"
-                          value={reservationData.phone}
-                          onChange={handleReservationChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                          required
-                        />
+                        <label className="block text-sm font-medium text-gray-100  mb-2">Teléfono</label>
+                        <div className="flex">
+                          <select
+                            name="countryCode"
+                            value={reservationData.countryCode}
+                            onChange={handleReservationChange}
+                            className="px-3 py-3 border border-gray-300 rounded-l-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-gray-50"
+                          >
+                            <option value="+503">🇸🇻 +503</option>
+                            <option value="+1">🇺🇸 +1</option>
+                            <option value="+52">🇲🇽 +52</option>
+                            <option value="+502">🇬🇹 +502</option>
+                            <option value="+504">🇭🇳 +504</option>
+                            <option value="+505">🇳🇮 +505</option>
+                            <option value="+506">🇨🇷 +506</option>
+                            <option value="+507">🇵🇦 +507</option>
+                          </select>
+                          <input
+                            type="tel"
+                            name="phone"
+                            value={reservationData.phone}
+                            onChange={handleReservationChange}
+                            placeholder="0000-0000"
+                            className="flex-1 px-4 py-3 border border-l-0 border-gray-300 rounded-r-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            required
+                          />
+                        </div>
                       </div>
                     </div>
 
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Número de Licencia</label>
-                      <input
-                        type="text"
-                        name="license"
-                        value={reservationData.license}
-                        onChange={handleReservationChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                        required
-                      />
-                    </div>
-
-                    <h4 className="text-lg font-bold text-gray-800 pt-4">Fechas y Horarios</h4>
+                    <h4 className="text-lg font-bold text-gray-100  pt-4">Fechas y Horarios</h4>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Fecha de Entrega</label>
+                        <label className="block text-sm font-medium text-white mb-2">Fecha de Entrega</label>
                         <input
                           type="date"
                           name="pickupDate"
@@ -803,7 +831,7 @@ const VehicleRental = () => {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Fecha de Devolución </label>
+                        <label className="block text-sm font-medium text-gray-100  mb-2">Fecha de Devolución </label>
                         <input
                           type="date"
                           name="returnDate"
@@ -817,7 +845,7 @@ const VehicleRental = () => {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Hora de Entrega</label>
+                        <label className="block text-sm font-medium text-gray-100  mb-2">Hora de Entrega</label>
                         <input
                           type="time"
                           name="pickupTime"
@@ -828,7 +856,7 @@ const VehicleRental = () => {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">Hora de Devolución</label>
+                        <label className="block text-sm font-medium text-gray-100  mb-2">Hora de Devolución</label>
                         <input
                           type="time"
                           name="returnTime"
@@ -841,7 +869,7 @@ const VehicleRental = () => {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Lugar de Entrega</label>
+                      <label className="block text-sm font-medium text-gray-100  mb-2">Lugar de Entrega</label>
                       <select
                         name="pickupLocation"
                         value={reservationData.pickupLocation}
@@ -860,7 +888,7 @@ const VehicleRental = () => {
                   </div>
 
                   <div className="space-y-6">
-                    <h4 className="text-lg font-bold text-gray-800">Servicios Adicionales</h4>
+                    <h4 className="text-lg font-bold text-white">Servicios Adicionales</h4>
 
                     <div className="space-y-3">
                       {additionalServices.map((service) => (
@@ -877,13 +905,13 @@ const VehicleRental = () => {
                           />
                           <div className="flex-1">
                             <div className="font-medium text-gray-800">{service.name}</div>
-                            <div className="text-sm text-gray-600">+${service.price}/día</div>
+                            <div className="text-sm text-gray-800">+${service.price}/día</div>
                           </div>
                         </label>
                       ))}
                     </div>
 
-                    <div className="bg-blue-50 rounded-xl p-6">
+                    <div className="bg-green-100 rounded-xl p-6">
                       <h4 className="text-lg font-bold text-gray-800 mb-4">Resumen de Reserva</h4>
                       {reservationData.vehicleId && (
                         <div className="space-y-2 text-sm">
@@ -927,7 +955,7 @@ const VehicleRental = () => {
                           className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mt-1"
                           required
                         />
-                        <span className="text-sm text-gray-700">
+                        <span className="text-sm text-gray-100">
                           Acepto los{" "}
                           <button
                             type="button"
@@ -955,7 +983,7 @@ const VehicleRental = () => {
                         )}
                       </button>
 
-                      <p className="text-center text-sm text-gray-500">
+                      <p className="text-center text-sm text-gray-100">
                         📞 ¿Necesitas ayuda?{" "}
                         <a
                           href="https://wa.me/50370993538"
