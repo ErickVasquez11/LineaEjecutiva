@@ -6,6 +6,7 @@ import About from './components/About';
 import Contact from './components/Contact';
 import VehicleRental from './components/VehicleRental';
 import Footer from './components/Footer';
+import WhatsAppButton from './components/WhatsAppButton';
 
 function App() {
   return (
@@ -13,10 +14,11 @@ function App() {
       <Header />
       <Hero />
       <Services />
-      <VehicleRental />
+      {/* <VehicleRental /> */}
       <About />
       <Contact />
       <Footer />
+       <WhatsAppButton />
     </div>
   );
 }

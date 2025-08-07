@@ -17,7 +17,7 @@ const Header = () => {
   const navItems = [
     
     { name: 'Servicios', href: '#servicios' },
-    { name: 'Renta de Vehículos', href: '#renta-vehiculos' },
+    //{ name: 'Renta de Vehículos', href: '#renta-vehiculos' },
     { name: 'Nosotros', href: '#nosotros' },
     { name: 'Contacto', href: '#contacto' },
   ];
@@ -58,13 +58,13 @@ const Header = () => {
 
           <div className="hidden xl:flex items-center space-x-2 lg:space-x-4">
             <a href="tel:+50370993538" className={`hidden lg:flex items-center space-x-2 hover:scale-105 transition-transform ${
-              isScrolled ? 'text-gray-600' : 'text-white/90'
+              isScrolled ? 'text-black' : 'text-white'
             }`}>
               <Phone className="w-4 h-4" />
               <span className="text-xs lg:text-sm">+503 7099-3538</span>
             </a>
             <a href="mailto:info@lineaejecutiva.com" className={`hidden xl:flex items-center space-x-2 hover:scale-105 transition-transform ${
-              isScrolled ? 'text-gray-600' : 'text-white/90'
+              isScrolled ? 'text-black' : 'text-white'
             }`}>
               <Mail className="w-4 h-4" />
               <span className="text-xs lg:text-sm">urbaniatransportes@gmail.com</span>

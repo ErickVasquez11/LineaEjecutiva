@@ -4,44 +4,38 @@ import type React from "react"
 import { useState, useRef } from "react"
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle, AlertCircle } from "lucide-react"
 import emailjs from "@emailjs/browser"
+import { PhoneNumberUtil } from "google-libphonenumber"
+const phoneUtil = PhoneNumberUtil.getInstance()
+
+const isPhoneValid = (phone: string) => {
+  try {
+    return phoneUtil.isValidNumber(phoneUtil.parseAndKeepRawInput(phone))
+  } catch (error) {
+    return false
+  }
+}
 
 const Contact = () => {
   const form = useRef<HTMLFormElement>(null)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    countryCode: "+503", // Código de país separado
-    phone: "",
+    phone: "+503 ", // Inicializar con código de El Salvador
     service: "Transporte Personal",
     message: "",
   })
   const [submitStatus, setSubmitStatus] = useState<"idle" | "sending" | "success" | "error">("idle")
   const [statusMessage, setStatusMessage] = useState("")
 
-  // Lista de países con sus códigos telefónicos
-  const countries = [
-    { code: "+503", name: "El Salvador", flag: "🇸🇻" },
-    { code: "+502", name: "Guatemala", flag: "🇬🇹" },
-    { code: "+504", name: "Honduras", flag: "🇭🇳" },
-    { code: "+505", name: "Nicaragua", flag: "🇳🇮" },
-    { code: "+506", name: "Costa Rica", flag: "🇨🇷" },
-    { code: "+507", name: "Panamá", flag: "🇵🇦" },
-    { code: "+52", name: "México", flag: "🇲🇽" },
-    { code: "+1", name: "Estados Unidos", flag: "🇺🇸" },
-    { code: "+1", name: "Canadá", flag: "🇨🇦" },
-    { code: "+34", name: "España", flag: "🇪🇸" },
-    { code: "+33", name: "Francia", flag: "🇫🇷" },
-    { code: "+49", name: "Alemania", flag: "🇩🇪" },
-    { code: "+39", name: "Italia", flag: "🇮🇹" },
-    { code: "+44", name: "Reino Unido", flag: "🇬🇧" },
-  ]
+  // Validar si el teléfono es válido
+  const isValid = isPhoneValid(formData.phone)
 
   // Mapeo de servicios para mostrar nombres más descriptivos
   const serviceLabels: { [key: string]: string } = {
     "Transporte Personal": "Transporte Personal",
-    "Traslados de Grupos": "Traslados de Grupos", 
+    "Traslados de Grupos": "Traslados de Grupos",
     "Traslados al Aeropuerto": "Traslados al Aeropuerto",
-    "Asistencia Personalizada": "Asistencia Personalizada"
+    "Asistencia Personalizada": "Asistencia Personalizada",
   }
 
   // Función para generar la plantilla HTML exacta del email
@@ -49,11 +43,8 @@ const Contact = () => {
     return `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 14px; color: #2c3e50; line-height: 1.6;">
   <div style="padding: 20px; border: 1px solid #e1e1e1; border-radius: 8px; background-color: #ffffff;">
     <h2 style="margin-top: 0; color: #1a1a1a;">📩 Nuevo mensaje de contacto</h2>
-
     <p>Hola equipo de <strong>Urbania Transportes</strong>,</p>
-
     <p>Hemos recibido un nuevo mensaje desde el formulario de contacto en la página web. A continuación, se detallan los datos enviados:</p>
-
     <div style="margin-top: 20px; padding: 15px; background-color: #f9f9f9; border: 1px dashed #ccc; border-radius: 6px;">
       <table style="width: 100%; border-collapse: collapse;">
         <tr>
@@ -65,12 +56,8 @@ const Contact = () => {
           <td style="padding: 10px;">${data.email}</td>
         </tr>
         <tr>
-          <td style="padding: 10px;"><strong>🌍 Código de País:</strong></td>
-          <td style="padding: 10px;">${data.countryCode}</td>
-        </tr>
-        <tr>
           <td style="padding: 10px;"><strong>📞 Teléfono:</strong></td>
-          <td style="padding: 10px;">${data.countryCode} ${data.phone}</td>
+          <td style="padding: 10px;">${data.phone}</td>
         </tr>
         <tr>
           <td style="padding: 10px;"><strong>🛣️ Servicio de Interés:</strong></td>
@@ -86,11 +73,8 @@ const Contact = () => {
         </tr>
       </table>
     </div>
-
     <p style="margin-top: 25px;">Por favor, responder a la brevedad posible.</p>
-
     <hr style="border: none; border-top: 1px solid #ddd; margin: 30px 0;">
-
     <footer style="font-size: 13px; color: #777;">
       Este correo fue generado automáticamente por el sistema de contacto de <strong>Urbania Transportes</strong>.<br>
       Si recibió este mensaje por error, simplemente ignórelo.
@@ -101,6 +85,18 @@ const Contact = () => {
 
   const sendEmail = (e: React.FormEvent) => {
     e.preventDefault()
+
+    // Validar teléfono antes de enviar
+    if (!isValid) {
+      setSubmitStatus("error")
+      setStatusMessage("Por favor, ingresa un número de teléfono válido.")
+      setTimeout(() => {
+        setSubmitStatus("idle")
+        setStatusMessage("")
+      }, 5000)
+      return
+    }
+
     setSubmitStatus("sending")
     setStatusMessage("Enviando mensaje...")
 
@@ -118,20 +114,19 @@ const Contact = () => {
     })
 
     // Configuración de EmailJS - Actualiza estos valores con tus credenciales
-    const serviceID = "service_jtty8p4" // Tu Service ID
-    const templateID = "template_1i36y5l" // Tu Template ID  
-    const publicKey = "_WJqcpBtNh2uCLEZi" // Tu Public Key
+    const serviceID = "service_8njjce9" // Tu Service ID
+    const templateID = "template_f2k4ypy" // Tu Template ID
+    const publicKey = "aHXCqqvASVIzBke_K" // Tu Public Key
 
     // Preparar los datos para enviar directamente a EmailJS
     const templateParams = {
       name: formData.name,
       email: formData.email,
-      countryCode: formData.countryCode,
       phone: formData.phone,
       service: formData.service,
       message: formData.message,
       time: currentTime,
-      html_content: generateEmailTemplate(formData, currentTime)
+      html_content: generateEmailTemplate(formData, currentTime),
     }
 
     emailjs
@@ -143,17 +138,14 @@ const Contact = () => {
           console.log("SUCCESS!", response.status, response.text)
           setSubmitStatus("success")
           setStatusMessage("¡Mensaje enviado exitosamente! Te contactaremos pronto.")
-
           // Reset form
           setFormData({
             name: "",
             email: "",
-            countryCode: "+503",
-            phone: "",
+            phone: "+503 ",
             service: "Transporte Personal",
             message: "",
           })
-
           // Clear status after 5 seconds
           setTimeout(() => {
             setSubmitStatus("idle")
@@ -164,21 +156,27 @@ const Contact = () => {
           console.log("FAILED...", error)
           setSubmitStatus("error")
           setStatusMessage("Error al enviar el mensaje. Por favor, intenta nuevamente o contáctanos directamente.")
-
           // Clear status after 5 seconds
           setTimeout(() => {
             setSubmitStatus("idle")
             setStatusMessage("")
           }, 5000)
-        }
+        },
       )
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
       [name]: value,
+    }))
+  }
+
+  const handlePhoneChange = (phone: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      phone: phone,
     }))
   }
 
@@ -207,7 +205,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Dirección",
-      info: "55 Av.Sur, Local #6, Av. Olímpica, San Salvador",
+      info: "55 Av.Sur, #6, Av. Olímpica, San Salvador",
       subInfo: "El Salvador, C.A.",
     },
     {
@@ -320,38 +318,83 @@ const Contact = () => {
                 <div>
                   <label className="block text-xs sm:text-sm font-medium text-gray-300 mb-2">Teléfono</label>
                   <div className="flex gap-2">
-                    <select
-                      name="countryCode"
-                      value={formData.countryCode}
-                      onChange={handleChange}
-                      className="w-24 sm:w-32 px-2 sm:px-3 py-2 sm:py-3 text-xs sm:text-sm bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors text-white"
-                      disabled={submitStatus === "sending"}
-                    >
-                      {countries.map((country, index) => (
-                        <option key={index} value={country.code}>
-                          {country.flag} {country.code}
-                        </option>
-                      ))}
-                    </select>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="7099-3538"
-                      className="flex-1 px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors text-white placeholder-gray-400"
-                      required
-                      disabled={submitStatus === "sending"}
-                    />
+                    <div className="relative">
+                      <select
+                        name="countryCode"
+                        value={formData.phone.split(" ")[0] || "+503"}
+                        onChange={(e) => {
+                          const newCountryCode = e.target.value
+                          const phoneNumber = formData.phone.split(" ").slice(1).join(" ") || ""
+                          setFormData((prev) => ({
+                            ...prev,
+                            phone: `${newCountryCode} ${phoneNumber}`.trim(),
+                          }))
+                        }}
+                        className="w-20 sm:w-24 px-2 sm:px-3 py-2 sm:py-3 text-xs sm:text-sm bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors text-white appearance-none cursor-pointer"
+                        disabled={submitStatus === "sending"}
+                      >
+                        <option value="+503">🇸🇻</option>
+                        <option value="+502">🇬🇹</option>
+                        <option value="+504">🇭🇳</option>
+                        <option value="+505">🇳🇮</option>
+                        <option value="+506">🇨🇷</option>
+                        <option value="+507">🇵🇦</option>
+                        <option value="+52">🇲🇽</option>
+                        <option value="+1">🇺🇸</option>
+                        <option value="+34">🇪🇸</option>
+                        <option value="+33">🇫🇷</option>
+                        <option value="+49">🇩🇪</option>
+                        <option value="+39">🇮🇹</option>
+                        <option value="+44">🇬🇧</option>
+                        <option value="+351">🇵🇹</option>
+                        <option value="+55">🇧🇷</option>
+                        <option value="+54">🇦🇷</option>
+                        <option value="+56">🇨🇱</option>
+                        <option value="+57">🇨🇴</option>
+                        <option value="+58">🇻🇪</option>
+                        <option value="+51">🇵🇪</option>
+                        <option value="+593">🇪🇨</option>
+                      </select>
+                      <div className="absolute inset-y-0 right-1 flex items-center pointer-events-none">
+                        <svg className="w-3 h-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="flex-1 relative">
+                      <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-sm text-gray-400 pointer-events-none">
+                        {formData.phone.split(" ")[0] || "+503"}
+                      </div>
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone.split(" ").slice(1).join(" ") || ""}
+                        onChange={(e) => {
+                          const countryCode = formData.phone.split(" ")[0] || "+503"
+                          const newPhone = `${countryCode} ${e.target.value}`.trim()
+                          setFormData((prev) => ({
+                            ...prev,
+                            phone: newPhone,
+                          }))
+                        }}
+                        placeholder="7099-3538"
+                        className="w-full pl-16 pr-3 sm:pr-4 py-2 sm:py-3 text-sm sm:text-base bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors text-white placeholder-gray-400"
+                        required
+                        disabled={submitStatus === "sending"}
+                      />
+                    </div>
                   </div>
-                  <p className="text-xs text-gray-400 mt-1">
-                    Teléfono completo: {formData.countryCode} {formData.phone}
-                  </p>
+                  {formData.phone && formData.phone.length > 4 && (
+                    <div className="flex items-center justify-between mt-1">
+                      <p className={`text-xs ${isValid ? "text-green-400" : "text-red-400"}`}>
+                        {isValid ? "✓ Número válido" : "✗ Número no válido"}
+                      </p>
+                      <p className="text-xs text-gray-400">{formData.phone}</p>
+                    </div>
+                  )}
                 </div>
                 <div>
-                  <label className="block text-xs sm:text-sm font-medium text-gray-300 mb-2">
-                    Servicio de Interés
-                  </label>
+                  <label className="block text-xs sm:text-sm font-medium text-gray-300 mb-2">Servicio de Interés</label>
                   <select
                     name="service"
                     value={formData.service}
@@ -384,9 +427,9 @@ const Contact = () => {
 
               <button
                 type="submit"
-                disabled={submitStatus === "sending"}
+                disabled={submitStatus === "sending" || !isValid}
                 className={`w-full py-3 sm:py-4 rounded-lg text-sm sm:text-base font-semibold transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg ${
-                  submitStatus === "sending"
+                  submitStatus === "sending" || !isValid
                     ? "bg-gray-600 cursor-not-allowed text-gray-400"
                     : "bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-700 hover:to-blue-800 hover:shadow-xl transform hover:scale-105"
                 }`}

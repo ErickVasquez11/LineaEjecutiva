@@ -33,21 +33,18 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Company Info */}
           <div className="space-y-4 sm:col-span-2 lg:col-span-1">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r  rounded-lg flex items-center justify-center">
-                <img src={logo} alt="Urbania Logo" className="w-8 h-8" />
-            </div>
+            <div className="flex flex-col items-center justify-center space-y-3">
+              <div className="w-50 h-50 bg-gradient-to-r rounded-lg flex items-center justify-center">
+              <img src={logo} alt="Urbania Logo" className="w-32 h-32" />
+              </div>
               <h3
-                  className={`text-xl font-bold tracking-wide }`}
-                  style={{ fontFamily: '"BankGothic Lt BT", Arial, sans-serif' }}
-                >
-                  Urbania Transportes
-                </h3>
+              className="text-xl font-bold tracking-wide text-center"
+              style={{ fontFamily: '"BankGothic Lt BT", Arial, sans-serif' }}
+              >
+              Urbania Transportes
+              </h3>
             </div>
-            <p className="text-sm sm:text-base text-gray-400 leading-relaxed">
-              Servicios ejecutivos de excelencia con más de 15 años de experiencia 
-              en El Salvador. Profesionalismo y calidad garantizada.
-            </p>
+        
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
                 <a
@@ -112,7 +109,7 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-blue-400 mt-0.5" />
                 <div>
-                  <p className="text-sm sm:text-base text-gray-400">55 Av.Sur, Local #6, Av. Olímpica, San Salvador</p>
+                  <p className="text-sm sm:text-base text-gray-400">55 Av.Sur,#6, Av. Olímpica, San Salvador</p>
                   <p className="text-xs sm:text-sm text-gray-500">El Salvador, C.A.</p>
                 </div>
               </div>

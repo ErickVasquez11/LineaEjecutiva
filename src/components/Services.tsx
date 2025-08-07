@@ -17,7 +17,7 @@ const Services = () => {
       detailedInfo: {
         overview: 'Nuestros servicios de transporte de personal particular y ejecutivo ofrece la máxima comodidad y seguridad para usuarios que valoran su tiempo y privacidad.',
         benefits: [
-          'Flota de vehículos de SUV, Sedán y Microbuses',
+          'Flota de vehículos SUV, Sedán y Microbuses',
           'Conductores con experiencia y documentación vigente',
           'Seguimiento GPS en tiempo real',
           'Servicio de recogida y entrega ',
@@ -66,7 +66,7 @@ const Services = () => {
       icon: Briefcase,
       title: 'Asistencia Personalizada',
       description: 'Servicios de apoyo administrativo y logístico',
-      features: ['Gestión de agenda', 'Coordinación de viajes', 'Servicios de mensajería', 'Apoyo administrativo'],
+      features: [],
       image: 'https://i.pinimg.com/736x/7a/eb/90/7aeb903ea041e92350445703e03b19e6.jpg',
       detailedInfo: {
         overview: 'Servicios de asistencia personal que permiten seguir con sus compromisos mientras nosotros manejamos los detalles. Ofrecemos una red de servicios de transporte personal, empresarial y grupal que cubre todo el territorio nacional e internacional, garantizando un traslado seguro y eficiente.',

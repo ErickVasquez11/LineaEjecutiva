@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react"
 import '../img/pexel-315938.png'
-import heroImg from '../img/pexel-315938.png'
+import heroImg from '../img/Wallapaper2.png'
 import contryImg from '..//img/Sin título-2.png'
 import trax from '../img/2a2c6e268ff1498680112606dfd24ac0_2000x700.jpg'
 
@@ -17,7 +17,7 @@ const MinimalCarousel = () => {
       title: "Servicios de Transporte",
       subtitle: "",
       description:
-        "Experiencia garantizada brindando servicios de transporte de personal, ejecutivos y corporativos con el más alto nivel de profesionalismo y seguridad.",
+        "Somos una empresa que brinda soluciones de transporte personal, empresarial y traslados de grupos en El Salvador, comprometida con brindar un excelente servicio.",
       isMainPage: true,
     },
      {
@@ -25,7 +25,7 @@ const MinimalCarousel = () => {
         title: "Servicios de Transporte",
       subtitle: "",
       description:
-        "Experiencia garantizada brindando servicios de transporte de personal, ejecutivos y corporativos con el más alto nivel de profesionalismo y seguridad.",
+        "Somos una empresa que brinda soluciones de transporte personal, empresarial y traslados de grupos en El Salvador, comprometida con brindar un excelente servicio.",
       isMainPage: true,
     },
     {
@@ -33,15 +33,15 @@ const MinimalCarousel = () => {
       title: "Servicios de Transporte",
       subtitle: "",
       description:
-        "Experiencia garantizada brindando servicios de transporte de personal, ejecutivos y corporativos con el más alto nivel de profesionalismo y seguridad.",
+        "Somos una empresa que brinda soluciones de transporte personal, empresarial y traslados de grupos en El Salvador, comprometida con brindar un excelente servicio.",
       isMainPage: true,
     },
     {
       image: "https://isuzuworld.my/images/6272024121339PMx-terrain_heroNew.png",
       title: "Servicios de Transporte",
       subtitle: "",
-      description:
-        "Experiencia garantizada brindando servicios de transporte de personal, ejecutivos y corporativos con el más alto nivel de profesionalismo y seguridad.",
+     description:
+        "Somos una empresa que brinda soluciones de transporte personal, empresarial y traslados de grupos en El Salvador, comprometida con brindar un excelente servicio.",
       isMainPage: true,
     },
     {
@@ -49,7 +49,7 @@ const MinimalCarousel = () => {
       title: "Servicios de Transporte",
       subtitle: "",
       description:
-         "Experiencia garantizada brindando servicios de transporte de personal, ejecutivos y corporativos con el más alto nivel de profesionalismo y seguridad.",
+        "Somos una empresa que brinda soluciones de transporte personal, empresarial y traslados de grupos en El Salvador, comprometida con brindar un excelente servicio.",
       isMainPage: true,
     },
     {
@@ -57,8 +57,8 @@ const MinimalCarousel = () => {
       title: "Servicios de Transporte",
       subtitle: "",
       description:
-        "Experiencia garantizada brindando servicios de transporte de personal, ejecutivos y corporativos con el más alto nivel de profesionalismo y seguridad.",
-      isMainPage: true,
+        "Somos una empresa que brinda soluciones de transporte personal, empresarial y traslados de grupos en El Salvador, comprometida con brindar un excelente servicio.",
+            isMainPage: true,
     }
   ]
 
