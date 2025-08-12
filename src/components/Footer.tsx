@@ -76,7 +76,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Services */}
+          {/*-- Services -- */}
           <div>
             <h4 className="text-base sm:text-lg font-semibold mb-4 sm:mb-6">Servicios</h4>
             <ul className="space-y-2 sm:space-y-3">
